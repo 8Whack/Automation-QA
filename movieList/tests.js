@@ -21,8 +21,8 @@ module.exports = {
     },
     findMessage: async(driver) =>{
         await driver.findElement(By.xpath('//span')).click();
-        const message = driver.findElement(By.id('message'))
-        expect(message).toBe('The Batman watched!')
+        const message = await driver.findElement(By.id('message')).getText()
+        expect(message).toBe('The Batman added back!')
     },
     deleteMovie: async (driver)=>{
         let removeButton = await driver.findElements(By.xpath('//li/button'));
